@@ -34,3 +34,42 @@ const showDetails = details => {
     image.appendChild(imageCreate);
   }
 };
+
+const createList = data => {
+  data.results
+    .map(pokemon => {
+      const listItem = document.createElement("li");
+      listItem.innerText = pokemon.name;
+      listItem.addEventListener("click", function(event) {
+        const urlPokemon = pokemon.url;
+        requestData(urlPokemon, showDetails);
+        listItem.style.cursor = "pointer";
+      });
+      return listItem;
+    })
+    .forEach(item => list.appendChild(item));
+
+  nextButton.addEventListener("click", nextPage);
+  prevButton.addEventListener("click", prevPage);
+
+  function prevPage() {
+    const prevPageData = data.previous;
+    list.innerText = "";
+    if (prevPageData !== null) {
+      list.innerText = "";
+      requestData(prevPageData, createList);
+      prevButton.removeEventListener("click", prevPage);
+      nextButton.removeEventListener("click", nextPage);
+    }
+  }
+
+  function nextPage() {
+    const nextPageData = data.next;
+    list.innerText = "";
+    requestData(nextPageData, createList);
+    prevButton.removeEventListener("click", prevPage);
+    nextButton.removeEventListener("click", nextPage);
+  }
+};
+
+requestData("https://pokeapi.co/api/v2/pokemon", createList);
