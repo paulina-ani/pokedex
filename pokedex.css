@@ -65,3 +65,90 @@ ul {
 img {
   width: 80%;
 }
+
+@media (min-width: 568px) {
+  .pokedex__container--title {
+    font-size: 1rem;
+  }
+
+  #pokedex__container--pokemons {
+    font-size: 0.7rem;
+    font-size: 1.2rem;
+    flex-wrap: wrap;
+    height: 28vh;
+  }
+
+  #pokedex__buttons--prev,
+  #pokedex__buttons--next {
+    font-size: 2rem;
+  }
+  .pokedex__info {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .info__image {
+    width: 40%;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .info__container {
+    font-size: 0.8rem;
+  }
+}
+@media (min-width: 750px) {
+  .pokedex__container--title {
+    font-size: 1.5rem;
+  }
+
+  #pokedex__container--pokemons {
+    font-size: 1rem;
+    height: 23vh;
+  }
+
+  .pokedex__buttons {
+    padding: 1.5%;
+  }
+  #pokedex__buttons--prev,
+  #pokedex__buttons--next {
+    font-size: 2rem;
+  }
+
+  .info__image {
+    width: 40%;
+  }
+
+  img {
+    width: 80%;
+  }
+
+  .info__container {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  #pokedex__container--pokemons {
+    height: 20vh;
+  }
+
+  .pokedex__buttons {
+    padding: 1%;
+  }
+
+  #pokedex__buttons--prev,
+  #pokedex__buttons--next {
+    font-size: 1.5rem;
+  }
+
+  img {
+    width: 60%;
+  }
+
+  .info__container {
+    font-size: 1rem;
+  }
+}
