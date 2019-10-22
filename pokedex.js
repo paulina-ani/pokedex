@@ -18,3 +18,19 @@ const requestData = (url, handler) => {
     .then(handler)
     .catch(error => console.log(error.message));
 };
+
+const showDetails = details => {
+  name.innerHTML = `Name: ${details.name}`;
+  height.innerHTML = `Height: ${details.height}`;
+  weight.innerHTML = `Weight: ${details.weight}`;
+  type.innerHTML = `Type: ${details.types.map(item => item.type.name)}`;
+  const imageCreate = document.createElement("img");
+  imageCreate.src = details.sprites.front_default;
+
+  if (image.children.length > 0) {
+    const imageVisible = document.querySelector("img");
+    imageVisible.setAttribute("src", details.sprites.front_default);
+  } else {
+    image.appendChild(imageCreate);
+  }
+};
